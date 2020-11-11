@@ -42,7 +42,7 @@
              while($row = $result->fetch_assoc()) {
                 echo $row['meal_name'] . " " . $row['ingredients'] . " " . $row['allergens'] . " " . $row['price'] . " " . $row['image_link'];
                 echo "<a href='update.php?id=" . $row['id'] . "'><button type='button'>Update</button></a>";
-                echo "<a href='delete.php" . $row['id'] . "'><button type='button'>Delete</button></a>" . "<br>";
+                echo "<a href='delete.php?id=" . $row['id'] . "'><button type='button'>Delete</button></a>" . "<br>";
              }
            } else {
               echo "No date available!";
