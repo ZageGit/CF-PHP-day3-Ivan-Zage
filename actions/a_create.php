@@ -15,11 +15,11 @@ if($_POST){
     VALUES ('$ingredients_1','$ingredients_2','$ingredients_3')";
 
     if($connect->query($sql_ing)===TRUE) {
-        echo "Success ingredieents";
-        echo "<a href='../index.php'><button type='button'>HOME</button></a>";
-        echo "<a href='../create.php'><button type='button'>BACK</button></a>";
+        echo "Success ingredients <br>";
+        echo "<a href='../index.php'><button type='button'>HOME</button></a> <br>";
+        echo "<a href='../create.php'><button type='button'>BACK</button></a> <br>";
     } else {
-        echo "not succesfull ingredients";
+        echo "not succesfull ingredients <br>";
     }
 
     $last_id = $connect->insert_id;
@@ -28,11 +28,11 @@ if($_POST){
     VALUES ('$meal_name','$allergens','$price','$image_link', '$last_id')";
 
     if($connect->query($sql)===TRUE) {
-        echo "Success meals";
-        echo "<a href='../index.php'><button type='button'>HOME</button></a>";
-        echo "<a href='../create.php'><button type='button'>BACK</button></a>";
+        echo "Success meals <br>";
+        echo "<a href='../index.php'><button type='button'>HOME</button></a> <br>";
+        echo "<a href='../create.php'><button type='button'>BACK</button></a> <br>";
     } else {
-        echo "not succesfull meals";
+        echo "not succesfull meals <br>";
     }
 
 
@@ -42,8 +42,3 @@ $connect->close();
 
 
 // WE ARE PROUD TO PRESENT OUR OWN WRITTEN SCRIPT WITHOUT USING PREWORK!!!! GET GOOD KIDS
-
-
-
-
-$last_id = $conn->insert_id;
