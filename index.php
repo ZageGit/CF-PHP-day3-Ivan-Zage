@@ -1,4 +1,14 @@
-<?php  require_once 'actions/db_connect.php' ?>
+<?php 
+
+// var_dump($_SESSION['user']);
+
+if( isset($_SESSION['user'])!="" ) {
+    header("Location: login.php");
+    exit;
+   }
+
+   require_once 'actions/db_connect.php';
+?>
 
 <html>
 <head>
@@ -30,6 +40,7 @@
                <th >Allergens</th>
                <th >Price</th>
                <th >ImageLink</th>
+               <th >Edit/Delete</th>
            </tr>
        </thead>
        <tbody>
@@ -40,9 +51,18 @@
 
            if ($result->num_rows > 0) {
              while($row = $result->fetch_assoc()) {
-                echo $row['meal_name'] . " " . $row['ingredients'] . " " . $row['allergens'] . " " . $row['price'] . " " . $row['image_link'];
-                echo "<a href='update.php?id=" . $row['id'] . "'><button type='button'>Update</button></a>";
-                echo "<a href='delete.php?id=" . $row['id'] . "'><button type='button'>Delete</button></a>" . "<br>";
+                echo  "<tr>
+                       <td>" .$row['meal_name']."</td>
+                       <td>" .$row['ingredients']."</td>
+                       <td>" .$row['allergens']."</td>
+                       <td>" .$row['price']."</td>
+                       <td>" .$row['image_link']."</td>
+                       <td>
+                           <a href='update.php?id=" .$row['id']."'><button type='button'>Edit</button></a>
+                           <a href='delete.php?id=" .$row['id']."'><button type='button'>Delete</button></a>
+                       </td>
+                   </tr>" ;
+
              }
            } else {
               echo "No date available!";
