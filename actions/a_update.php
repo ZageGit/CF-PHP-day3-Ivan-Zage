@@ -26,7 +26,6 @@ if ($_POST['id']) {
 	$connect->close();
 }
 
-?>
 
 
 

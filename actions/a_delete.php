@@ -18,4 +18,3 @@ $sql ="DELETE FROM meals WHERE id = {$id}";
     $connect->close();
 }
 
-?>

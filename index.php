@@ -1,11 +1,13 @@
 <?php 
 
 // var_dump($_SESSION['user']);
+ob_start();
+session_start();
 
-if( isset($_SESSION['user'])!="" ) {
+if( !isset($_SESSION['user']) ) {
     header("Location: login.php");
     exit;
-   }
+   } 
 
    require_once 'actions/db_connect.php';
 ?>
@@ -71,6 +73,7 @@ if( isset($_SESSION['user'])!="" ) {
            ?>
        </tbody>
    </table>
+   <a  href="logout.php?logout">Sign Out</a>
 </div>
 
 </body>
