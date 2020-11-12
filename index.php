@@ -39,36 +39,65 @@ if( !isset($_SESSION['user']) ) {
            <tr>
                <th>Name</th>
                <th >Ingredients</th>
-               <th >Allergens</th>
-               <th >Price</th>
-               <th >ImageLink</th>
+               <th >Ingredient 1</th>
+               <th >Ingredient 2</th>
+               <th >Ingredient 3</th>
                <th >Edit/Delete</th>
            </tr>
        </thead>
        <tbody>
            <?php 
 
-           $sql = "SELECT * FROM meals";
-           $result =  mysqli_query($connect, $sql);//  $connect->query($sql);
+$sql = "SELECT meals.id, meal_name, allergens, ingredient_1, ingredient_2, ingredient_3 FROM meals
+INNER JOIN ingredients ON meals.fk_ingredient = ingredients.ingredient_id";
+$result =  mysqli_query($connect, $sql);//  $connect->query($sql);
 
-           if ($result->num_rows > 0) {
-             while($row = $result->fetch_assoc()) {
-                echo  "<tr>
-                       <td>" .$row['meal_name']."</td>
-                       <td>" .$row['ingredients']."</td>
-                       <td>" .$row['allergens']."</td>
-                       <td>" .$row['price']."</td>
-                       <td>" .$row['image_link']."</td>
-                       <td>
-                           <a href='update.php?id=" .$row['id']."'><button type='button'>Edit</button></a>
-                           <a href='delete.php?id=" .$row['id']."'><button type='button'>Delete</button></a>
-                       </td>
-                   </tr>" ;
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+     echo  "<tr>
+            <td>" .$row['meal_name']."</td>
+            <td>" .$row['allergens']."</td>
+            <td>" .$row['ingredient_1']."</td>
+            <td>" .$row['ingredient_2']."</td>
+            <td>" .$row['ingredient_3']."</td>
+            <td>
+                <a href='update.php?id=" .$row['id']."'><button type='button'>Edit</button></a>
+                <a href='delete.php?id=" .$row['id']."'><button type='button'>Delete</button></a>
+            </td>
+        </tr>" ;
 
-             }
-           } else {
-              echo "No date available!";
-           }
+  }
+} else {
+   echo "No date available!";
+}
+
+
+
+
+
+
+
+        //    $sql = "SELECT * FROM meals";
+        //    $result =  mysqli_query($connect, $sql);//  $connect->query($sql);
+
+        //    if ($result->num_rows > 0) {
+        //      while($row = $result->fetch_assoc()) {
+        //         echo  "<tr>
+        //                <td>" .$row['meal_name']."</td>
+        //                <td>" .$row['ingredients']."</td>
+        //                <td>" .$row['allergens']."</td>
+        //                <td>" .$row['price']."</td>
+        //                <td>" .$row['image_link']."</td>
+        //                <td>
+        //                    <a href='update.php?id=" .$row['id']."'><button type='button'>Edit</button></a>
+        //                    <a href='delete.php?id=" .$row['id']."'><button type='button'>Delete</button></a>
+        //                </td>
+        //            </tr>" ;
+
+        //      }
+        //    } else {
+        //       echo "No date available!";
+        //    }
 
            ?>
        </tbody>
