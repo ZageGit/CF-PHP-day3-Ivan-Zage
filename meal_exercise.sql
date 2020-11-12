@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2020 at 02:50 PM
+-- Generation Time: Nov 12, 2020 at 05:25 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -41,7 +41,13 @@ CREATE TABLE `ingredients` (
 --
 
 INSERT INTO `ingredients` (`ingredient_id`, `ingredient_1`, `ingredient_2`, `ingredient_3`) VALUES
-(8, 'Potato', 'Salt', 'Water');
+(8, 'Potato', 'Salt', 'Water'),
+(13, 'Toastbrot', 'Schinken', 'Käse'),
+(15, 'keetchzupo', 'whte', 'adfjefjef'),
+(16, 'aefefe', 'afneofndon', 'ionafoernfown'),
+(17, 'Meat', 'Onions', 'Ajvar'),
+(18, '1', '2', '3'),
+(19, '12', '13', '14');
 
 -- --------------------------------------------------------
 
@@ -55,7 +61,7 @@ CREATE TABLE `meals` (
   `allergens` varchar(255) NOT NULL,
   `price` float DEFAULT NULL,
   `image_link` varchar(255) NOT NULL,
-  `fk_ingredient` int(11) NOT NULL
+  `fk_ingredient` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -63,7 +69,9 @@ CREATE TABLE `meals` (
 --
 
 INSERT INTO `meals` (`id`, `meal_name`, `allergens`, `price`, `image_link`, `fk_ingredient`) VALUES
-(12, 'Püree', 'Keine', 12, 'testlink', 8);
+(22, 'Toast', 'alles', 15, 'test ImageLink', 13),
+(25, 'Schnitzel', 'oianfoienfeoiinf', 18, 'awpfomepfmef', 16),
+(27, 'test2', 'allergen', 12, 'link', 18);
 
 -- --------------------------------------------------------
 
@@ -83,7 +91,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `userName`, `userEmail`, `userPass`) VALUES
-(3, 'Johannes', 'test@test.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92');
+(3, 'Johannes', 'test@test.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'),
+(4, 'Peter Test', 'peter@test.com', '481f6cc0511143ccdd7e2d1b1b94faf0a700a8b49cd13922a70b5ae28acaa8c5');
 
 --
 -- Indexes for dumped tables
@@ -117,19 +126,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `meals`
 --
 ALTER TABLE `meals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
