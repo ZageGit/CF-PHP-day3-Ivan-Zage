@@ -2,24 +2,48 @@
 
 if($_POST){
     $meal_name = $_POST['meal_name'];
-    $ingredients = $_POST['ingredients'];
+    $ingredients_1 = $_POST['ingredient_1'];
+    $ingredients_2 = $_POST['ingredient_2'];
+    $ingredients_3 = $_POST['ingredient_3'];
     $allergens = $_POST['allergens'];
     $price = $_POST['price'];
     $image_link = $_POST['image_link'];
+    // $foreign = $_POST['fk_ingredient']
 
-    $sql = "INSERT INTO meals (meal_name, ingredients, allergens, price, image_link)
-    VALUES ('$meal_name','$ingredients','$allergens','$price','$image_link')";
 
-    if($connect->query($sql)===TRUE) {
-        echo "Success";
+    $sql_ing ="INSERT INTO ingredients (ingredient_1, ingredient_2, ingredient_3)
+    VALUES ('$ingredients_1','$ingredients_2','$ingredients_3')";
+
+    if($connect->query($sql_ing)===TRUE) {
+        echo "Success ingredieents";
         echo "<a href='../index.php'><button type='button'>HOME</button></a>";
         echo "<a href='../create.php'><button type='button'>BACK</button></a>";
     } else {
-        echo "not succesfull";
+        echo "not succesfull ingredients";
     }
+
+    $last_id = $connect->insert_id;
+
+    $sql = "INSERT INTO meals (meal_name, allergens, price, image_link, fk_ingredient)
+    VALUES ('$meal_name','$allergens','$price','$image_link', '$last_id')";
+
+    if($connect->query($sql)===TRUE) {
+        echo "Success meals";
+        echo "<a href='../index.php'><button type='button'>HOME</button></a>";
+        echo "<a href='../create.php'><button type='button'>BACK</button></a>";
+    } else {
+        echo "not succesfull meals";
+    }
+
+
 }
 
 $connect->close();
 
 
 // WE ARE PROUD TO PRESENT OUR OWN WRITTEN SCRIPT WITHOUT USING PREWORK!!!! GET GOOD KIDS
+
+
+
+
+$last_id = $conn->insert_id;

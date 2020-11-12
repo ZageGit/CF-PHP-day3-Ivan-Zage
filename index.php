@@ -38,7 +38,7 @@ if( !isset($_SESSION['user']) ) {
        <thead>
            <tr>
                <th>Name</th>
-               <th >Ingredients</th>
+               <th >Allergens</th>
                <th >Ingredient 1</th>
                <th >Ingredient 2</th>
                <th >Ingredient 3</th>
@@ -49,7 +49,7 @@ if( !isset($_SESSION['user']) ) {
            <?php 
 
 $sql = "SELECT meals.id, meal_name, allergens, ingredient_1, ingredient_2, ingredient_3 FROM meals
-INNER JOIN ingredients ON meals.fk_ingredient = ingredients.ingredient_id";
+INNER JOIN ingredients ON  meals.fk_ingredient = ingredients.ingredient_id";
 $result =  mysqli_query($connect, $sql);//  $connect->query($sql);
 
 if ($result->num_rows > 0) {

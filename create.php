@@ -28,9 +28,18 @@
                <td><input  type="text" name="meal_name"  placeholder="Name" /></td >
            </tr>    
            <tr>
-               <th>Ingredients</th>
-               <td><input  type="text" name= "ingredients" placeholder="Ingredients" /></td>
+               <th>Ingredients_1</th>
+               <td><input  type="text" name= "ingredient_1" placeholder="Ingredients" /></td>
            </tr>
+           <tr>
+               <th>Ingredients_2</th>
+               <td><input  type="text" name= "ingredient_2" placeholder="Ingredients" /></td>
+           </tr>
+           <tr>
+               <th>Ingredients_3</th>
+               <td><input  type="text" name= "ingredient_3" placeholder="Ingredients" /></td>
+           </tr>
+
            <tr>
                <th>Allergens</th>
                <td><input type="text"  name="allergens" placeholder ="Ingredients" /></td>
